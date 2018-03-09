@@ -1,10 +1,8 @@
-/* * Skeleton V2.0.4 * Copyright 2014, Dave Gamache *
-www.getskeleton.com * Free to use under the MIT license. *
-http://www.opensource.org/licenses/mit-license.php * 12/29/2014 */ /*
-Table of contents –––––––––––––––––––––––––––––––––––––––––––––––––– -
-Grid - Base Styles - Typography - Links - Buttons - Forms - Lists - Code
-- Tables - Spacing - Utilities - Clearing - Media Queries */ /* Grid
-–––––––––––––––––––––––––––––––––––––––––––––––––– */ .container {
+* {
+  box-sizing: border-box;
+}
+
+.container {
   position: relative;
   width: 100%;
   max-width: 960px;
@@ -237,19 +235,122 @@ Goodness */ .container:after, .row:after, .u-cf {
 /* Custom style */
   @default-padding:   1em;
 
-  // header
-  header {
-    background:#dedede;
-    padding:@default-padding;
+  .fluid-container {
+    position: relative;
+    #hamburger {
+      cursor:pointer;
+      position:absolute;
+      top:20px;
+      right:20px;
+      display:block;
+      height:30px;
+      width:30px;
+      background:url("/img/menu.png")no-repeat center;
+      background-size:contain;
+      z-index:999;
+      &.open {
+        background:url("/img/cross_radius.png")no-repeat center;
+        background-size: contain;
+      }
+    }
   }
 
 
+  // header
+  header {
+    background:#FFF;
+    #logo {
+      padding: .2em;
+      img{
+        max-width:360px;
+        width:100%;
+        margin:1em 0;
+      }
+    }
+  }
 
-  // main
-  main {
-    background:#eee;
-    overflow:hidden;
+  .search-bar {
+    background: #bf0033;
+    padding:.2em @default-padding;
+    .header_skn {
+      color:#fff;
+      width:30%;
+      display:inline-block;
+      vertical-align:middle;
+      line-height: 38px;
+      font-size:30px;
+      text-transform: uppercase;
+      + div {
+        width:69%;
+        text-align:right;
+        display:inline-block;
+        vertical-align:middle;
+        line-height: 38px;
+      }
+    }
+    .search{
+      height:40px;
+        input{
+          margin:0;
+          height:40px;
+          line-height:38px;
+          border-radius:0;
+        }
+    }
+  }
+
+  // BODY
+
+.fluid-container> .row {
+  margin:auto;
+}
+  .skn_row {
     padding:@default-padding;
+    padding-top:66px;
+  }
+  #skn_personal{
+    background:#ebebeb;
+    min-width:230px;
+    h1  {
+      padding:calc(@default-padding / 2);
+      padding-left:0;
+    }
+    img {
+      display:block;
+      max-width:100%;
+      margin:1em 0;
+    }
+  }
+
+  #skn_body{
+    background:#fff;
+    h1  {
+      color:#fff;
+      padding:calc(@default-padding / 2);
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bf0033+0,660033+50,bf0033+100 */
+      background: #bf0033; /* Old browsers */
+      background: -moz-linear-gradient(top, #bf0033 0%, #660033 50%, #bf0033 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top, #bf0033 0%,#660033 50%,#bf0033 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom, #bf0033 0%,#660033 50%,#bf0033 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bf0033', endColorstr='#bf0033',GradientType=0 ); /* IE6-9 */
+    }
+  }
+
+  #skn_sidebar{
+    background:#ebebeb;
+    width:0;
+    transition:.3s ease width;
+    overflow:hidden;
+    padding:0;
+    &.open {
+      width:auto;
+      padding: 1em;
+      padding-top: 66px;
+    }
+  }
+
+  .tables {
+    padding:1em;
   }
 
 
@@ -266,6 +367,10 @@ buttons on small devices, paste the mobile query code up in the buttons
 section and style it there. */ /* Larger than mobile */ @media
 (min-width: 400px) {} /* Larger than phablet (also point when grid
 becomes active) */ @media (min-width: 550px) {} /* Larger than tablet */
-@media (min-width: 750px) {} /* Larger than desktop */ @media
-(min-width: 1000px) {} /* Larger than Desktop HD */ @media (min-width:
+@media (max-width: 750px) {
+  .skn_row {
+    width:100%;
+  }
+} /* Larger than desktop */
+@media (min-width: 1000px) {} /* Larger than Desktop HD */ @media (min-width:
 1200px) {}

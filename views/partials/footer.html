@@ -1,3 +1,40 @@
 <footer>
   <span>footer</span>
+
+  <script>
+    function loadXMLDoc() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          var jsonArray = JSON.parse(this.responseText)
+          console.log(jsonArray[0][2]);
+          document.getElementById("test").innerHTML =
+          jsonArray;
+          openSidebar();
+        }
+      };
+      xhttp.open("GET", "/orctable", true);
+      xhttp.send();
+    }
+    function openSidebar() {
+      $("#skn_sidebar").addClass("open");
+      $("#hamburger").addClass("open");
+      $("#skn_sidebar").css({
+        width:  'auto',
+        padding:  '1em',
+        'padding-top':  "66px"
+      });
+      $("#hamburger").attr("onclick","closeSidebar()");
+    }
+    function closeSidebar() {
+      $("#skn_sidebar").removeClass("auto_width");
+      $("#hamburger").removeClass("open");
+      $("#skn_sidebar").css({
+        width:  0,
+        padding:  0,
+        'padding-top':  "66px"
+      });
+      $("#hamburger").attr("onclick","openSidebar()");
+    }
+  </script>
 </footer>
