@@ -339,7 +339,7 @@ Goodness */ .container:after, .row:after, .u-cf {
   #skn_sidebar{
     background:#ebebeb;
     width:0;
-    transition:.3s ease width;
+    transition:.3s ease all;
     overflow:hidden;
     padding:0;
     &.open {
@@ -353,6 +353,22 @@ Goodness */ .container:after, .row:after, .u-cf {
     padding:1em;
   }
 
+  h1 {
+    svg {
+      margin-left:1em;
+      color:#e4001b;
+    }
+    svg.fa-plus {
+      display:none;
+      color:#0073aa;
+    }
+    &.open svg {
+      color:#e4001b;
+    }
+  }
+  .tables {
+    display:none;
+  }
 
   // footer
   footer {

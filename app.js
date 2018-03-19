@@ -79,13 +79,45 @@ app.get('/', function (req, res){
 			}
 		)
 });
+app.get('/similar_skn', function (req, res){
+		res.render('similar_skn',
+			{
+			title: 'Home',
+			partials : {
+					head : '/partials/head',
+					header : '/partials/header',
+					similar_skn_view: '/partials/similar_skn_view',
+					footer : '/partials/footer'
+				}
+			}
+		)
+});
+
+
+
 
 app.get('/orctable', function (req, res){
-	console.log('GET oracle table');
-	DbConnection(query,function(err,result){
-		console.log("ORA: Query contents:", result)
-		res.end(JSON.stringify(result));
-	})
+
+	// console.log('GET oracle table');
+	// DbConnection(query,function(err,result){
+	// 	console.log("ORA: Query contents:", result)
+	// 	res.end(JSON.stringify(result));
+	// })
+	// Execute the function "doThis" with another function as parameter, in this case "andThenThis". doThis will execute whatever code it has and when it finishes it should have "andThenThis" being executed.
+	doThis(andThenThis)
+	// Inside of "doThis" it's referenced as "callback" which is just a variable that is holding the reference to this function
+	function andThenThis() {
+	  console.log('and then this')
+	}
+	// You can name it whatever you want, "callback" is common approach
+	function doThis(callback) {
+	  console.log('this first')
+
+	  // the '()' is when you are telling your code to execute the function reference else it will just log the reference
+	  callback()
+	}
+
+
 });
 
 

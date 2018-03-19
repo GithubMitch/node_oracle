@@ -2,6 +2,21 @@
   <span>footer</span>
 
   <script>
+  // $(document).ready({
+    var delict = $('.delict .tables');
+    $('h1').on('click', function() {
+         var table = $(this).next('.tables');
+         console.log("click")
+         $(table).toggle( "slow", function() {
+            // Animation complete.
+         });
+         $('svg').toggle( "slow", function() {
+            // Animation complete.
+         });
+    });
+
+
+  // });
     function loadXMLDoc() {
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
